@@ -8,7 +8,7 @@
 [![ADB](https://img.shields.io/badge/Android_TV-ADB_Fast_Probe-3DDC84?logo=android&logoColor=white)](https://developer.android.com/studio/command-line/adb)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Промышленный программно-аппаратный комплекс автоматизации контроля качества (**ОТК / Quality Assurance**) для конвейерного и стендового тестирования телевизоров **Smart TV** на базе **Android TV / Google TV** (платформы Amlogic, MediaTek и др.). Разработан для производственных линий завода **ТОО "DS Multimedia CA"** (г. Алматы).
+Промышленный программно-аппаратный комплекс автоматизации контроля качества (**ОТК / Quality Assurance**) для конвейерного и стендового тестирования телевизоров **Smart TV** на базе **Android TV / Google TV** (платформы Amlogic, MediaTek и др.).
 
 Стенд производит **100% автоматическую валидацию** разъема PCMCIA DVB-CI/CI+, спутникового тракта DVB-S/S2, криптографического дескремблера и выполняет автодобавление телеканалов ОТАУ ТВ с контрольным включением звука на уровне 70% **без необходимости покупки платных подписок или абонплаты операторов**.
 
@@ -252,8 +252,6 @@ GET /api/stats/summary
 ## 👤 Автор и лицензия
 
 - **Автор**: [Izenov Nurbolat (nrkfo)](https://github.com/nrkfo)
-- **Должность**: Руководитель службы контроля качества (Head of Quality Department)
-- **Организация**: ТОО "DS Multimedia CA", г. Алматы
 - **Email**: [nurik.wayne98@gmail.com](mailto:nurik.wayne98@gmail.com)
 - **LinkedIn**: [iznm](https://linkedin.com/in/iznm)
 
