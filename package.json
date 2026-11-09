@@ -1,0 +1,17 @@
+{
+  "name": "qms-ci-station-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Система автоматизации ОТК для проверки CI/CI+ разъемов телевизоров",
+  "scripts": {
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build:backend": "npm --prefix backend run build",
+    "build:frontend": "npm --prefix frontend run build",
+    "build": "npm run build:backend && npm run build:frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

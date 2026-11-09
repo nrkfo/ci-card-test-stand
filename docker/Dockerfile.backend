@@ -1,0 +1,28 @@
+FROM node:22-alpine AS builder
+
+WORKDIR /app
+COPY backend/package*.json ./
+RUN npm ci
+
+COPY backend/ ./
+RUN npm run build
+
+FROM node:22-alpine AS runner
+WORKDIR /app
+
+RUN apk add --no-cache android-tools
+
+COPY backend/package*.json ./
+RUN npm ci --only=production
+
+COPY --from=builder /app/dist ./dist
+
+ENV NODE_ENV=production
+ENV PORT=5001
+ENV DB_PATH=/app/data/database.sqlite
+ENV ADB_PATH=/usr/bin/adb
+
+VOLUME [ "/app/data" ]
+EXPOSE 5001
+
+CMD ["node", "dist/server.js"]

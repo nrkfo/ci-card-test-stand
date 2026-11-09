@@ -1,0 +1,31 @@
+[Unit]
+Description=QMS-CI Test Station Backend (ADB CI/CI+ Validator for TV QC)
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=otk
+Group=otk
+WorkingDirectory=/opt/qms-ci-station/backend
+Environment=NODE_ENV=production
+Environment=PORT=5001
+Environment=DB_PATH=/opt/qms-ci-station/backend/database.sqlite
+Environment=ADB_PATH=/usr/bin/adb
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+
+# Execute compiled node server
+ExecStart=/usr/bin/node dist/server.js
+
+# Restart policy for 24/7 assembly line reliability
+Restart=always
+RestartSec=5s
+
+# Process and resource limits for industrial stability
+LimitNOFILE=65535
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=qms-ci-backend
+
+[Install]
+WantedBy=multi-user.target

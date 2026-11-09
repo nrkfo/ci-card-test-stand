@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    container_name: qms_ci_backend
+    restart: unless-stopped
+    ports:
+      - "5001:5001"
+    volumes:
+      - qms_db_data:/app/data
+      - /dev/bus/usb:/dev/bus/usb # Access to physical USB ADB devices
+    privileged: true
+    environment:
+      - PORT=5001
+      - DB_PATH=/app/data/database.sqlite
+      - ADB_PATH=/usr/bin/adb
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.frontend
+    container_name: qms_ci_frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  qms_db_data:
